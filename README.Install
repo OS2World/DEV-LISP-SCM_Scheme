@@ -1,0 +1,62 @@
+How to install the precompiled version of SCM Scheme 4e1 with OS/2 (and DOS)
+----------------------------------------------------------------------------
+
+This is a precompiled version of SCM Scheme 4e1 together with the distribution
+of Scheme Library slib2a2.
+
+It was compiled for OS/2 Warp and the use of HPFS (High Performance File System) is
+recommended, but it should run under plain DOS too (thanks to the emx package).
+
+
+1) The emx-package must be installed (e.g. the file emx.dll must be in a
+   directory named in the LIBPATH-statement of your CONFIG.SYS)
+   If emx isn't installed yet, get the file emxrt.zip and install the
+   emx-runtime package following the instruction in the readme-file.
+   How to get emxrt.zip:
+     Try ftp://ftp-os2.nmsu.edu
+      or ftp://ftp.uni-stuttgart.de/pub/systems/os2/emx-0.9a/emxrt.zip
+
+2) Unzip the archive (use the Info-Unzip program, not PKunzip!).
+   It will generate a directory named \Progs\SCM with other subdirectories.
+   Don't change the directory structure!
+
+3) Edit your CONFIG.SYS (make a copy FIRST!) and add the SCM Scheme-directory
+   to the PATH-statement:
+       set PATH=...;d:\Progs\SCM;...
+   Add the following statements:
+       set HOME=d:\
+       set SCM_INIT_PATH=d:\Progs\SCM\Init.scm
+       set SCHEME_LIBRARY_PATH=d:\Progs\SCM\SLib\
+   Please substitute the string "d:\" with your actual drive.
+   DON'T FORGET THE TERMINATING BACKSLASH (\) AFTER THE DIRECTORY OF
+   SCHEME_LIBRARY_PATH
+   (DOS Users should add this statements to the AUTOEXEC.BAT)
+
+3) Reboot OS/2 to let the changes take effect.
+
+4) Try the system ... type 'scm' and press return:
+
+   [d:\progs\scm] scm
+   SCM version 4e1, Copyright (C) 1990, 1991, 1992, 1993, 1994 Aubrey Jaffer.
+   SCM comes with ABSOLUTELY NO WARRANTY; for details type `(terms)'.
+   This is free software, and you are welcome to redistribute it
+   under certain conditions; type `(terms)' for details.
+
+     compiled for OS/2 Warp by Michael Zimmermann, Aachen (Germany) - 27.Oct.95
+                   E-Mail: MiZimm@Pool.Informatik.RWTH-Aachen.de
+   ;loading "d:\\Progs\\SCM\\Transcen.scm"
+   ;done loading "d:\\Progs\\SCM\\Transcen.scm"
+   ;Evaluation took 1410 mSec (0 in gc) 10785 cells work, 13462 bytes other
+   > (load "ackermann")
+   ;loading "ackermann"
+   ;done loading "ackermann.scm"
+   ;Evaluation took 130 mSec (0 in gc) 102 cells work, 119 bytes other
+   #<unspecified>
+   > (ackermann 3 4)
+   ;Evaluation took 500 mSec (90 in gc) 41236 cells work, 35 bytes other
+   125> (quit)
+   ;EXIT
+
+
+--------------
+Michael Zimmermann, Aachen (Germany) - 30.Oct.95
